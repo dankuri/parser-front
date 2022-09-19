@@ -1,4 +1,4 @@
-import './style.css'
+import './style.css';
 
 document.querySelector('#app').innerHTML = `
   <div>
@@ -14,26 +14,27 @@ document.querySelector('#app').innerHTML = `
         <a id="info"></a>
     </div>
   </div>
-`
+`;
 
-let city = ""
-document.querySelector("form").addEventListener('submit', (event) => {
-    event.preventDefault()
-    city = event.target.city.value
-    fetch(`http://localhost:3000/api?citys_name=${city}`).then(response =>
-        response.json().then(data => {
-            updateInfo(data)
-            event.target.city.value = ""
+let city = '';
+const API_URL = process.env.api_url;
+document.querySelector('form').addEventListener('submit', (event) => {
+    event.preventDefault();
+    city = event.target.city.value;
+    fetch(`${API_URL}/api?citys_name=${city}`).then((response) =>
+        response.json().then((data) => {
+            updateInfo(data);
+            event.target.city.value = '';
         })
-    )
-})
+    );
+});
 
 function updateInfo(data) {
-    document.querySelector("#info").innerHTML = `
+    document.querySelector('#info').innerHTML = `
         <h2>${city} weather</h2>
-        <p>Температура: ${data["temp"]} С</p>
-        <p>Облачность: ${data["clouds"]}</p>
-        <p>Ветер: направление ${data["wind"]} со скоростью ${data["pw"]} м/с</p>
+        <p>Температура: ${data['temp']} С</p>
+        <p>Облачность: ${data['clouds']}</p>
+        <p>Ветер: направление ${data['wind']} со скоростью ${data['pw']} м/с</p>
 
-    `
+    `;
 }
