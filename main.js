@@ -1,5 +1,5 @@
 import './style.css';
-
+require('dotenv').config();
 document.querySelector('#app').innerHTML = `
   <div>
     <h1>ima parser bruv!</h1>
