@@ -17,11 +17,11 @@ document.querySelector('#app').innerHTML = `
 `;
 
 let city = '';
-const API_URL = process.env.api_url;
+const api_url = process.env.api_url;
 document.querySelector('form').addEventListener('submit', (event) => {
     event.preventDefault();
     city = event.target.city.value;
-    fetch(`${API_URL}/api?citys_name=${city}`).then((response) =>
+    fetch(`${api_url}/api?citys_name=${city}`).then((response) =>
         response.json().then((data) => {
             updateInfo(data);
             event.target.city.value = '';

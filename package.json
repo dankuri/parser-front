@@ -2,7 +2,7 @@
     "name": "parser-front",
     "private": true,
     "version": "0.0.0",
-    "type": "module",
+    "type": "commonjs",
     "scripts": {
         "start": "npx http-server ./dist",
         "dev": "vite --port 3001",
